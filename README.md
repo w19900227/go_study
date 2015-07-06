@@ -131,7 +131,9 @@ const var1 = value
 	Range、Close `main3.go`
 
 
+## web sample `ex5`
 
+## import other package of sample `ex6`
 
 
 
