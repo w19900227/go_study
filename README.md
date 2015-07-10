@@ -135,7 +135,7 @@ const var1 = value
 
 ## import other package of sample `ex6`
 
-
+## 相同package可以互相使用參數
 
 
 
