@@ -138,4 +138,21 @@ const var1 = value
 ## 相同package可以互相使用參數
 
 
+## 判斷型態
+	
+	import "reflect"
+	import "fmt"
+
+	func main() {
+		s := "11111"
+		fmt.Println(reflect.TypeOf(s))
+
+		i := 11111
+		fmt.Println(reflect.TypeOf(i))
+	}
+
+## 參考網站
+	1. [https://github.com/Unknwon/go-fundamental-programming](https://github.com/Unknwon/go-fundamental-programming)
+
+
 
