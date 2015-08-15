@@ -1,5 +1,10 @@
 
 
+### 懶人執行
+`範例` 會自動執行ex1裡的main的go檔案
+
+	$ ./run.sh ex1 main
+
 ### 變數宣告
 | Component        | Why is it included? / Remarks |
 | ---------------- | ------------------- |
@@ -18,18 +23,28 @@ const var1 = value
 
 ### array
 `var arr [n]type` 在[n]type中，n代表陣列長度，type代表儲存元素類型
+
 `arr := [3]int{1, 2, 3}`
+
 `arr := [...]int{4, 5, 6}` 可使用'...'的方式，Go語言自動根據元素個數來計算長度
+
 `doubleArr := [2][4]int{ [4]int{1, 2, 3, 4}, [4]int{5, 6, 7, 8} }` 宣告二維陣列，並指定內部類型
+
 `doubleArr := [2][4]int{ {1, 2, 3, 4}, {5, 6, 7, 8} }` 宣告二維陣列，忽略內部類型
 
 ### slice
 動態陣列
+
 `var arr []int`
+
 `arr := []byte {'a', 'b', 'c', 'd'}`
+
 `arr = ar[2:5]` a指定陣列的第3個元素開始，並到第五個元素結束
+
 `arr = ar[:3]` 相當於arr = arr[0:3]
+
 `arr = ar[5:]` 相當於arr = arr[5:10]
+
 `arr = ar[:]` 相當於arr = arr[0:10]
 
 ### map
@@ -59,6 +74,7 @@ const var1 = value
 
 ## switch
 加入`fallthrough`強制執行後面的case
+
 加入`break`比對成功後不會自動向下執行
 	switch x {
 	case 1:
