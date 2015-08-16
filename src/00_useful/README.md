@@ -6,3 +6,7 @@
 
 用來判斷目前有幾個CPU可使用，並給予幾個CPU使用
 
+### main3
+
+Get Json Data sample
+
