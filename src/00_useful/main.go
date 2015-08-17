@@ -60,3 +60,24 @@ func ex2() {
 	    }
 	}
 }
+
+func ex3() {
+	var jsonBlob = []byte(`[
+        {"Name": "Platypus"},
+        {"Name": "Quoll",    "Order": 100}
+    ]`)
+    type Animal struct {
+        Name  string 
+        Order *int   
+    }
+    var animals []Animal
+    err := json.Unmarshal(jsonBlob, &animals)
+    if err != nil {
+        fmt.Println("error:", err)
+    }
+    for _, a := range animals {
+        if a.Order != nil {
+            fmt.Printf("got order, %s : %d\n", a.Name, *a.Order)
+        }
+    }
+}
