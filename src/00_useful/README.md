@@ -10,3 +10,7 @@
 
 Get Json Data sample
 
+
+### main6
+
+[參考網址](http://www.alexedwards.net/blog/golang-response-snippets)
