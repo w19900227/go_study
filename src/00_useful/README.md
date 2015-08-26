@@ -14,3 +14,9 @@ Get Json Data sample
 ### main6
 
 [參考網址](http://www.alexedwards.net/blog/golang-response-snippets)
+
+
+### main7
+
+主要是透過json傳送資料以及接收response(GET、POST) demo
+
