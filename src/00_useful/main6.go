@@ -42,9 +42,36 @@ func ex2_func(w http.ResponseWriter, r *http.Request) {
 	w.Write(js)
 }
 
+
+func ex3_func(w http.ResponseWriter, r *http.Request) {
+    var ta []interface{}
+    type tt struct {
+        Name string `json:"name"`
+        Age int `json:"age"`
+    }
+    for i:=1; i<3; i++ {
+        ta = append(ta, tt{"aaa", i})
+        // tt.Name = "aaa"
+        // tt.Age = i
+        // ta = append(ta, tt)
+    }
+    // ta := tt{"aaa", 2}
+    // fmt.Println(ta)
+
+    js, err := json.Marshal(ta)
+    if err != nil {
+        http.Error(w, err.Error(), http.StatusInternalServerError)
+        return
+    }
+
+    w.Header().Set("Content-Type", "application/json")
+    w.Write(js)
+}
+
 func main() {
 	http.HandleFunc("/", ex1_func)
 	http.HandleFunc("/ex2", ex2_func)
+	http.HandleFunc("/ex3", ex3_func)
 	err := http.ListenAndServe(":9090", nil)
 	if err != nil {
 		log.Fatal("ListenAndServe : ", err)
