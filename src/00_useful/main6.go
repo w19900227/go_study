@@ -4,6 +4,7 @@ import (
 	"net/http"
 	"encoding/json"
 	"log"
+	// "fmt"
 )
 
 type ex1 ex1_1
@@ -21,6 +22,24 @@ func ex1_func(w http.ResponseWriter, r *http.Request) {
 	}
 
 	w.Header().Set("Content-Type", "application/json")
+	w.Write(js)
+}
+
+func ex5_func(w http.ResponseWriter, r *http.Request) {
+    type List struct {
+        Service []string `json:"service"`
+    }
+
+    var list List
+    list.Service = append(list.Service, "a")
+    list.Service = append(list.Service, "b")
+
+    js, err := json.Marshal(list)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+    w.Header().Set("Content-Type", "application/json")
 	w.Write(js)
 }
 
@@ -96,6 +115,7 @@ func main() {
 	http.HandleFunc("/ex2", ex2_func)
 	http.HandleFunc("/ex3", ex3_func)
 	http.HandleFunc("/ex4", ex4_func)
+	http.HandleFunc("/ex5", ex5_func)
 	err := http.ListenAndServe(":9090", nil)
 	if err != nil {
 		log.Fatal("ListenAndServe : ", err)

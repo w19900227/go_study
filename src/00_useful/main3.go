@@ -4,6 +4,7 @@ import "fmt"
 import "net/http"
 import "io/ioutil"
 import "encoding/json"
+// import "container/list"
 
 
 type promotion_block struct {
@@ -121,6 +122,8 @@ func main() {
 	get_list()
 	fmt.Println("------------------------------------------------------")
 	get_promotion_2()
+	fmt.Println("------------------------------------------------------")
+	get_promotion_3()
 }
 
 type promotion_block_2 struct {
@@ -168,4 +171,41 @@ func get_promotion_2() {
 	fmt.Println("==============================")
 	fmt.Println(data.Data[0])
 	fmt.Println(data.Data[0].Id)
+}
+
+
+type promotion_block_3 struct {
+	Status t3 `json:"status"`
+}
+type t3 map[string]string
+
+func get_promotion_3() {
+
+    url := "http://www.miii.tv/channels/promotion/block"
+
+    res, err := http.Get(url)
+
+    if err != nil {
+        panic(err.Error())
+    }
+    // fmt.Println(res.Body)
+    body, err := ioutil.ReadAll(res.Body)
+
+    if err != nil {
+        panic(err.Error())
+    }
+    // body := res.Body
+    
+    body = []byte(`{"status": {"ok-k":"ok-v", "f-k": "f-v"}}`)
+    
+    var data promotion_block_3
+	json.Unmarshal(body, &data)
+	// for k, v := range data.Status {
+	// 	fmt.Println(k)
+	// 	fmt.Println(v)
+	// }
+	fmt.Println(data)
+	fmt.Println("==============================")
+	// fmt.Println(data.Status["ok-k"])
+	// fmt.Println(data.Data[0].Id)
 }
