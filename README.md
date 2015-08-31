@@ -151,10 +151,11 @@ const var1 = value
 
 ## import other package of sample `ex6`
 
-## 相同package可以互相使用參數
+## **相同package可以互相使用參數
 
 
 ## 判斷型態
+`ex1`
 	
 	import "reflect"
 	import "fmt"
@@ -165,6 +166,18 @@ const var1 = value
 
 		i := 11111
 		fmt.Println(reflect.TypeOf(i))
+	}
+
+`ex2`
+
+	import (
+    	"fmt"
+    	"reflect"
+	)
+	func main() {
+		z := "hello"
+		zv := reflect.TypeOf(z).Kind()
+		fmt.Println(zv)
 	}
 
 ## 參考網站
