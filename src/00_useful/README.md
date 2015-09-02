@@ -20,3 +20,7 @@ Get Json Data sample
 
 主要是透過json傳送資料以及接收response(GET、POST) demo
 
+### main8
+
+透過json傳送request(Get、Post、Put、Delete) demo
+
